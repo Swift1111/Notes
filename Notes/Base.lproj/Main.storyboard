@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Z2K-Uj-Hgd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -137,7 +137,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="204.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xny-bl-Zcu">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1" verticalCompressionResistancePriority="1" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xny-bl-Zcu">
                                             <rect key="frame" x="143.5" y="8" width="250.5" height="23"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="23" id="JW8-01-rm3"/>
@@ -148,6 +148,9 @@
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1T-xy-0d0">
                                             <rect key="frame" x="143.5" y="39" width="250.5" height="64.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="64.5" id="s3y-2o-Res"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -179,7 +182,7 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0NG-I0-qud">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0NG-I0-qud">
                                             <rect key="frame" x="30" y="8" width="103.5" height="188.5"/>
                                         </imageView>
                                     </subviews>
@@ -222,15 +225,20 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Root View Controller" id="Hlq-bJ-ZXu">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="IJT-iL-C6o"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="gTz-k7-pWO"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="IJT-iL-C6o">
+                            <connections>
+                                <action selector="addAction:" destination="vYy-e1-72j" id="RqK-2V-Vw0"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yq1-4u-rgY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="973.91304347826099" y="129.91071428571428"/>
+            <point key="canvasLocation" x="936" y="130"/>
         </scene>
-        <!--Add Note View Controller-->
+        <!--Title-->
         <scene sceneID="i9H-VG-jRx">
             <objects>
                 <viewController storyboardIdentifier="AddNoteViewController" id="g8D-Xf-dtS" customClass="AddNoteViewController" customModule="Notes" customModuleProvider="target" sceneMemberID="viewController">
@@ -239,7 +247,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bOv-m0-BMt">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="97v-sS-lF3">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="802"/>
@@ -268,13 +276,15 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="150" id="Hgg-hK-GfG"/>
                                                 </constraints>
-                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fZF-lf-cvT">
                                                 <rect key="frame" x="30" y="291" width="364" height="150"/>
                                                 <state key="normal" title="Choose image"/>
+                                                <connections>
+                                                    <action selector="selectedImageButton:" destination="g8D-Xf-dtS" eventType="touchUpInside" id="dDQ-3h-o4v"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Image" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZDg-QT-2gr">
                                                 <rect key="frame" x="30" y="262" width="364" height="21"/>
@@ -285,7 +295,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="m1S-hH-uFW">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="m1S-hH-uFW">
                                                 <rect key="frame" x="30" y="291" width="364" height="150"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="150" id="CbS-Yk-6B8"/>
@@ -330,7 +340,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="IOy-qy-kZJ">
+                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="IOy-qy-kZJ">
                                                 <rect key="frame" x="30" y="612" width="364" height="216"/>
                                                 <date key="date" timeIntervalSinceReferenceDate="583757448.67910504">
                                                     <!--2019-07-02 10:50:48 +0000-->
@@ -407,40 +417,35 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="lCJ-PZ-EZQ"/>
                     </view>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Title" id="en9-C6-MUD">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="MUM-YN-ci2">
+                            <connections>
+                                <action selector="cancelAction:" destination="g8D-Xf-dtS" id="6wY-br-Bra"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="ySr-dc-R6O">
+                            <connections>
+                                <action selector="saveAction:" destination="g8D-Xf-dtS" id="BVn-AX-Rvn"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="datePicker" destination="IOy-qy-kZJ" id="Mja-lS-zcA"/>
                         <outlet property="descriptionTextView" destination="CTY-T8-Lyb" id="AM0-CS-7YG"/>
                         <outlet property="mailTextField" destination="bqZ-Nw-8AE" id="9yf-rh-8Ro"/>
                         <outlet property="noteImageView" destination="m1S-hH-uFW" id="xgh-dc-ds1"/>
                         <outlet property="phoneNumberTextField" destination="7ab-cl-pXm" id="ME7-PA-VFr"/>
+                        <outlet property="scrollView" destination="bOv-m0-BMt" id="kc6-8d-2v6"/>
                         <outlet property="selectedImageButton" destination="fZF-lf-cvT" id="gvm-Z7-glK"/>
                         <outlet property="titleTextField" destination="UaP-oV-3ip" id="5Wy-qV-V5m"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9XZ-2i-kFt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1759" y="130"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="VFM-Dj-P7B">
-            <objects>
-                <viewController id="Z2K-Uj-Hgd" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="O52-C7-Ru1">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="ZCQ-ZV-wke"/>
-                    </view>
-                    <toolbarItems>
-                        <barButtonItem title="Item" id="sCo-5X-c26"/>
-                    </toolbarItems>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Oqs-8T-6wc" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2652" y="114"/>
+            <point key="canvasLocation" x="1720" y="130"/>
         </scene>
     </scenes>
 </document>

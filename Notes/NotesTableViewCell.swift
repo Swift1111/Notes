@@ -15,8 +15,20 @@ class NotesTableViewCell: UITableViewCell {
     @IBOutlet weak var phoneNumberLabel: UILabel!
     @IBOutlet weak var mailLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var noteImageView: UIImageView!
+    @IBOutlet weak var noteImageView: UIImageView?
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+//        self.noteImageView?.subviews.forEach({
+//            if let label = $0 as? UILabel {
+//                label.isHidden = label.text == "" ? true : false
+//            } else if let imageView = $0 as? UIImageView {
+//                imageView.isHidden = imageView.image == nil ? true : false
+//            }
+//        })
+        let tapGesture = UIGestureRecognizer(target: self, action: #selector(clickLabel(_:)))
+        self.mailLabel.addGestureRecognizer(tapGesture)
+    }
 
     func setup(white note: Note) {
         self.titleLabel.text = note.title
@@ -24,8 +36,14 @@ class NotesTableViewCell: UITableViewCell {
         self.phoneNumberLabel.text = note.phoneNumber
         self.mailLabel.text = note.mail
         self.dateLabel.text = note.date
-        if noteImageView == self.noteImageView {
+        if let noteImageView = self.noteImageView {
             noteImageView.image = note.image
         }
     }
+    
+    @objc func clickLabel(_ selector: Any) {
+        print(555)
+    }
+    
+    
 }
