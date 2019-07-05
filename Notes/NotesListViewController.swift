@@ -13,7 +13,7 @@ import SQLite3
 
 class NotesListViewController: UITableViewController, AddNoteViewControllerDelegate {
     
-    
+    /////////////////////////
     var fileURL: URL!
     var db: OpaquePointer?
     var statement: OpaquePointer?
@@ -33,15 +33,7 @@ class NotesListViewController: UITableViewController, AddNoteViewControllerDeleg
         
         db = nil
     }
-
-    
-    
-    
-    
-    
-    
-    
-    
+    /////////////////////////////
     
     var notes: [Note] = []
     var selectedIndexPath = IndexPath()
@@ -55,29 +47,23 @@ class NotesListViewController: UITableViewController, AddNoteViewControllerDeleg
         self.tableView.estimatedRowHeight = 120
         self.title = "Notes"
         
-        
-        
+        /////////////////////////
         fileURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
             .appendingPathComponent("Note.sqlite")
         
         open()
         
         let text = """
-CREATE TABLE Note(
-Id INT PRIMARY KEY NOT NULL,
-Name TEXT);
-"""
+                    CREATE TABLE Note(Id INT PRIMARY KEY NOT NULL,Name TEXT);
+                   """
         if sqlite3_exec(db, text, nil, nil, nil) != SQLITE_OK {
             let errmsg = String(cString: sqlite3_errmsg(db)!)
             print("error creating table: \(errmsg)")
         }
         
-        
-        
         close()
         
-        
-        print(fileURL)
+//        print(fileURL)
         
     }
     
@@ -112,18 +98,39 @@ Name TEXT);
     // MARK: - Table view delegate
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.selectedIndexPath = tableView.indexPathForSelectedRow!
-        let note = notes[selectedIndexPath.row]
-        
-        guard let addVC = self.storyboard?.instantiateViewController(withIdentifier: "AddNoteViewController") as? AddNoteViewController else { return }
-        addVC.editNote = note
-        addVC.delegate = self
-        let navigationViewController = UINavigationController(rootViewController: addVC)
+        let note = notes[indexPath.row]
+        guard let diteilsVC = self.storyboard?.instantiateViewController(withIdentifier: "DiteilsViewController") as? DiteilsViewController else { return }
+        diteilsVC.note = note
+        let navigationViewController = UINavigationController(rootViewController: diteilsVC)
         present(navigationViewController, animated: true, completion: nil)
     }
     
     override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-        return .delete
+        return .none
+    }
+    
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let deleteTitle = NSLocalizedString("Delete", comment: "Delete action")
+        let deleteAction = UITableViewRowAction(style: .destructive,
+                                                title: deleteTitle) { (action, indexPath) in
+                                                    self.notes.remove(at: indexPath.row)
+                                                    tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+        
+        let editTitle = NSLocalizedString("Edit", comment: "Edit action")
+        let editAction = UITableViewRowAction(style: .normal,
+                                                  title: editTitle) {_,_ in
+                                                    self.selectedIndexPath = indexPath
+                                                    let note = self.notes[self.selectedIndexPath.row]
+                                                    
+                                                    guard let addVC = self.storyboard?.instantiateViewController(withIdentifier: "AddNoteViewController") as? AddNoteViewController else { return }
+                                                    addVC.editNote = note
+                                                    addVC.delegate = self
+                                                    let navigationViewController = UINavigationController(rootViewController: addVC)
+                                                    self.present(navigationViewController, animated: true, completion: nil)
+        }
+        editAction.backgroundColor = .blue
+        return [editAction, deleteAction]
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
