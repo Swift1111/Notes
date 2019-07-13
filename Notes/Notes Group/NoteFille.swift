@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 struct Note {
+    
     var title: String
     var description: String
     var phoneNumber: String?
@@ -25,5 +26,4 @@ struct Note {
         self.date = date
         self.image = image
     }
-    
 }

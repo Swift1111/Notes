@@ -10,17 +10,17 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet weak var notesButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+      
     }
     
-
- 
     @IBAction func notesAction(_ sender: UIButton) {
         guard let noteVc = self.storyboard?.instantiateViewController(withIdentifier: "NotesListViewController") as? NotesListViewController else { return }
+        
         let navVC = UINavigationController(rootViewController: noteVc)
         self.present(navVC, animated: true, completion: nil)
     }
-    
 }

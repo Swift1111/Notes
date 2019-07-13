@@ -9,9 +9,15 @@
 /* Begin PBXBuildFile section */
 		0115647122CB4147008D8B42 /* NotesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0115647022CB4147008D8B42 /* NotesListViewController.swift */; };
 		0115647322CB4D01008D8B42 /* NoteFille.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0115647222CB4D01008D8B42 /* NoteFille.swift */; };
-		0115647522CB4FEF008D8B42 /* NotesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0115647422CB4FEF008D8B42 /* NotesTableViewCell.swift */; };
+		0115647522CB4FEF008D8B42 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0115647422CB4FEF008D8B42 /* TableViewCell.swift */; };
 		0115647722CB5B80008D8B42 /* AddNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0115647622CB5B80008D8B42 /* AddNoteViewController.swift */; };
+		0142B52B22D730C90034300E /* ColectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0142B52A22D730C90034300E /* ColectionView.swift */; };
+		0142B52D22D7349B0034300E /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0142B52C22D7349B0034300E /* TableView.swift */; };
+		0142B53622D8AA680034300E /* SQLit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0142B53522D8AA680034300E /* SQLit.swift */; };
+		0142B53A22DA6B560034300E /* TableViewXIBCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0142B53922DA6B560034300E /* TableViewXIBCell.xib */; };
+		0142B53C22DA6BE10034300E /* XIBTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0142B53B22DA6BE10034300E /* XIBTableViewCell.swift */; };
 		0184DE7622CEB14100F0974C /* DiteilsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0184DE7522CEB14100F0974C /* DiteilsViewController.swift */; };
+		01D9CA8E22D3549D0035D460 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D9CA8D22D3549D0035D460 /* CollectionViewCell.swift */; };
 		01F7350A22CAAA4000A62C49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F7350922CAAA4000A62C49 /* AppDelegate.swift */; };
 		01F7350F22CAAA4000A62C49 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01F7350D22CAAA4000A62C49 /* Main.storyboard */; };
 		01F7351122CAAA4400A62C49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01F7351022CAAA4400A62C49 /* Assets.xcassets */; };
@@ -22,9 +28,15 @@
 /* Begin PBXFileReference section */
 		0115647022CB4147008D8B42 /* NotesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesListViewController.swift; sourceTree = "<group>"; };
 		0115647222CB4D01008D8B42 /* NoteFille.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteFille.swift; sourceTree = "<group>"; };
-		0115647422CB4FEF008D8B42 /* NotesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesTableViewCell.swift; sourceTree = "<group>"; };
+		0115647422CB4FEF008D8B42 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		0115647622CB5B80008D8B42 /* AddNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewController.swift; sourceTree = "<group>"; };
+		0142B52A22D730C90034300E /* ColectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColectionView.swift; sourceTree = "<group>"; };
+		0142B52C22D7349B0034300E /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
+		0142B53522D8AA680034300E /* SQLit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLit.swift; sourceTree = "<group>"; };
+		0142B53922DA6B560034300E /* TableViewXIBCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewXIBCell.xib; sourceTree = "<group>"; };
+		0142B53B22DA6BE10034300E /* XIBTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XIBTableViewCell.swift; sourceTree = "<group>"; };
 		0184DE7522CEB14100F0974C /* DiteilsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiteilsViewController.swift; sourceTree = "<group>"; };
+		01D9CA8D22D3549D0035D460 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		01F7350622CAAA4000A62C49 /* Notes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Notes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01F7350922CAAA4000A62C49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		01F7350E22CAAA4000A62C49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -45,6 +57,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0142B53122D736C20034300E /* Notes Group */ = {
+			isa = PBXGroup;
+			children = (
+				0115647222CB4D01008D8B42 /* NoteFille.swift */,
+				0115647022CB4147008D8B42 /* NotesListViewController.swift */,
+			);
+			path = "Notes Group";
+			sourceTree = "<group>";
+		};
+		0142B53722DA64680034300E /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				0142B53522D8AA680034300E /* SQLit.swift */,
+				0142B52C22D7349B0034300E /* TableView.swift */,
+				0142B52A22D730C90034300E /* ColectionView.swift */,
+			);
+			path = Extentions;
+			sourceTree = "<group>";
+		};
+		0142B53822DA64B90034300E /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				01D9CA8D22D3549D0035D460 /* CollectionViewCell.swift */,
+				0115647422CB4FEF008D8B42 /* TableViewCell.swift */,
+				0142B53B22DA6BE10034300E /* XIBTableViewCell.swift */,
+				0142B53922DA6B560034300E /* TableViewXIBCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		01F734FD22CAAA4000A62C49 = {
 			isa = PBXGroup;
 			children = (
@@ -64,14 +106,14 @@
 		01F7350822CAAA4000A62C49 /* Notes */ = {
 			isa = PBXGroup;
 			children = (
-				01F7350D22CAAA4000A62C49 /* Main.storyboard */,
 				01F7350922CAAA4000A62C49 /* AppDelegate.swift */,
-				01F7351B22CAAAE400A62C49 /* LoginViewController.swift */,
-				0115647222CB4D01008D8B42 /* NoteFille.swift */,
-				0115647422CB4FEF008D8B42 /* NotesTableViewCell.swift */,
-				0115647022CB4147008D8B42 /* NotesListViewController.swift */,
+				0142B53822DA64B90034300E /* Cells */,
+				0142B53722DA64680034300E /* Extentions */,
+				0142B53122D736C20034300E /* Notes Group */,
 				0115647622CB5B80008D8B42 /* AddNoteViewController.swift */,
+				01F7351B22CAAAE400A62C49 /* LoginViewController.swift */,
 				0184DE7522CEB14100F0974C /* DiteilsViewController.swift */,
+				01F7350D22CAAA4000A62C49 /* Main.storyboard */,
 				01F7351022CAAA4400A62C49 /* Assets.xcassets */,
 				01F7351222CAAA4400A62C49 /* LaunchScreen.storyboard */,
 				01F7351522CAAA4400A62C49 /* Info.plist */,
@@ -140,6 +182,7 @@
 				01F7351422CAAA4400A62C49 /* LaunchScreen.storyboard in Resources */,
 				01F7351122CAAA4400A62C49 /* Assets.xcassets in Resources */,
 				01F7350F22CAAA4000A62C49 /* Main.storyboard in Resources */,
+				0142B53A22DA6B560034300E /* TableViewXIBCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,13 +193,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0142B52D22D7349B0034300E /* TableView.swift in Sources */,
 				0115647322CB4D01008D8B42 /* NoteFille.swift in Sources */,
 				01F7351C22CAAAE400A62C49 /* LoginViewController.swift in Sources */,
+				0142B53622D8AA680034300E /* SQLit.swift in Sources */,
+				0142B52B22D730C90034300E /* ColectionView.swift in Sources */,
 				0115647722CB5B80008D8B42 /* AddNoteViewController.swift in Sources */,
-				0115647522CB4FEF008D8B42 /* NotesTableViewCell.swift in Sources */,
+				0115647522CB4FEF008D8B42 /* TableViewCell.swift in Sources */,
+				01D9CA8E22D3549D0035D460 /* CollectionViewCell.swift in Sources */,
 				0184DE7622CEB14100F0974C /* DiteilsViewController.swift in Sources */,
 				0115647122CB4147008D8B42 /* NotesListViewController.swift in Sources */,
 				01F7350A22CAAA4000A62C49 /* AppDelegate.swift in Sources */,
+				0142B53C22DA6BE10034300E /* XIBTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -17,7 +17,6 @@ class DiteilsViewController: UIViewController {
     @IBOutlet weak var mailLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     
-    
     var note: Note? = nil
     
     override func viewDidLoad() {
@@ -67,5 +66,4 @@ class DiteilsViewController: UIViewController {
     @objc func mailTaped(_ sender: Any) {
         self.showAlert(title: "Mail", message: "Can not send mail")
     }
-    
 }

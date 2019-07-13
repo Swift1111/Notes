@@ -15,8 +15,6 @@ protocol AddNoteViewControllerDelegate {
 
 class AddNoteViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
   
-    var delegate: AddNoteViewControllerDelegate?
-
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var phoneNumberTextField: UITextField!
@@ -24,10 +22,10 @@ class AddNoteViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var noteImageView: UIImageView!
     @IBOutlet weak var mailTextField: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
-  
     
     @IBOutlet weak var scrollView: UIScrollView!
     
+    var delegate: AddNoteViewControllerDelegate?
     var editNote: Note?
     
     var note: Note {
@@ -51,8 +49,13 @@ class AddNoteViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.updateSaveButtonState()
-        registerForKeyboardNotifications()
+        self.registerForKeyboardNotifications()
+    }
+    
+    @objc func dismissKeyboard() {
+        self.view.endEditing(true)
     }
     
     @IBAction func cancelAction(_ sender: UIBarButtonItem) {
@@ -65,6 +68,7 @@ class AddNoteViewController: UIViewController, UIImagePickerControllerDelegate, 
         } else if let _ = self.titleTextField.text, let _ = self.descriptionTextView.text {
             delegate?.noteCreated(note: self.note)
         }
+        
         updateSaveButtonState()
         navigationController?.dismiss(animated: true, completion: nil)
     }
@@ -78,8 +82,6 @@ class AddNoteViewController: UIViewController, UIImagePickerControllerDelegate, 
             self.mailTextField.text = editNote.mail
         }
     }
-    
-    
     
     // MARK: - ImagePicker
     @IBAction func selectedImageButton(_ sender: UIButton) {
@@ -100,7 +102,6 @@ class AddNoteViewController: UIViewController, UIImagePickerControllerDelegate, 
         picker.dismiss(animated: true, completion: nil)
     }
     
-    
     // MARK: - Kayboard notification
     func registerForKeyboardNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWasShown(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -115,13 +116,16 @@ class AddNoteViewController: UIViewController, UIImagePickerControllerDelegate, 
         let keyboardSize = keyboardFrame.size
         
         let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: keyboardSize.height, right: 0.0)
-        scrollView.contentInset = contentInsets
-        scrollView.scrollIndicatorInsets = contentInsets
+        self.scrollView.contentInset = contentInsets
+        self.scrollView.scrollIndicatorInsets = contentInsets
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        self.view.addGestureRecognizer(tap)
     }
     
     @objc func keyboardWillBeHidden(_ notification: NSNotification) {
         let contentInsets = UIEdgeInsets.zero
-        scrollView.contentInset = contentInsets
-        scrollView.scrollIndicatorInsets = contentInsets
+        self.scrollView.contentInset = contentInsets
+        self.scrollView.scrollIndicatorInsets = contentInsets
     }
 }
